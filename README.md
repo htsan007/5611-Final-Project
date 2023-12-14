@@ -23,4 +23,4 @@ Because this implementation utilizes a grid to model the flow of velocity and de
 
 |Initial Smoke implementation | Updated Smoke Implemetation         | 
 |-------------------------|-------------------------|
-<img src="./docs/assets/smoke mid sim.png" width="300" height="250"> | <img src="./docs/assets/updatedSmoke.png" width="300" height="250">       
+<img src="./docs/assets/smoke mid sim.png" width="300" height="250"> | <img src="./docs/assets/updatedSmoke.jpg" width="300" height="250">       
