@@ -61,3 +61,4 @@ The main limitation I had was slow real-time simulation with larger scenes. The 
 
 <a href= "/docs/assets/CSCI5611_FINAL_PROJ_fire.pde" download>Download Fire Code</a>
 
+Both the smoke and fire simulations were written by me. The main algorithms and functionality was taken from Jos Stam's paper <a href="http://graphics.cs.cmu.edu/nsp/course/15-464/Fall09/papers/StamFluidforGames.pdf"> Real-Time Fluid Dynamics for Games </a> . Additional functionality for the fire simulation was taken from Professor Guy's <a href= "/docs/assets/ProfessorFire5611.txt"> code example</a> .
