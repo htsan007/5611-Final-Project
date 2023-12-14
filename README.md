@@ -47,8 +47,10 @@ I received feedback on my smoke simulation saying that it might benefit from add
 ---
 
 As one of my peers suggested, I think adding more complex obstacles would be an interesting extension. I might try to add obstacles using the same boundary mechanics that were used for the edges of the scene. Another extension would to make the fire/smoke a part of a larger, more active scene. Currently my firecamp scene is pretty basic and shows off the simulation itself pretty well, but that is about it.
+
   Another thing I might try in the future is to get a better color gradient for the fire and smoke. I implemented the color so that the heat was colored based on certain threshold values. This makes for some pretty distinct lines in the color distribution, which looks unnatural.
 
 The main limitation I had was slow real-time simulation with larger scenes. The larger my scene was the choppier the simulation would be, which wasn't ideal for the realistic real-time simulation I was aiming for. This might work better in a different language or as an offline simulation instead. 
+
   Since the approach I took for visualization was essentially to iterate through and color every scene pixel based on the grid values, every single pixel is redrawn when the scene is updated. This leaves it so that other objects I want to draw must be draw ontop of the fire simulation otherwise they would be drawn over. Textured backgrounds are not an option because of this as well; it would simply get covered up. I might try and fix this by trying to avoid redrawing certain areas with no smoke/fire, which would allow for more customization with the background and may also increase simulation speed since less areas would have to be redrawn at every update.
 
