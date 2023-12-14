@@ -30,7 +30,7 @@ For the most part, my goal remained the same throughout the implementation proce
 |-------------------------|-------------------------|
 <img src="./docs/assets/smoke mid sim.png" width="300" height="250"> | <img src="./docs/assets/updatedSmoke.JPG" width="300" height="250"> |  
 
-With the detailed breakdown of fluid simulation from Jo Stam's paper, getting the smoke simulation working was pretty straight-forward. The biggest challenge here was getting realistic behaviour, which I was able to achieve after tweaking the diffusion and viscosity constants for the smoke. Between the first and second image I also applied a dissipation factor to the smoke since it wasn't fading over time and became overly-concentrated very rapidly. Overall I was very happy with my results.
+With the detailed breakdown of fluid simulation from Jo Stam's paper, getting the smoke simulation working was pretty straight-forward. The biggest challenge here was getting realistic behaviour, which I was able to achieve after tweaking the diffusion and viscosity constants for the smoke. Between the first and second image I also applied a dissipation factor to the smoke since it wasn't fading over time and became overly-concentrated very rapidly. Overall, I was very happy with my results.
 
 |Final Fire startup | Final Fire mid-sim |
 |-------------------------|-------------------------|
