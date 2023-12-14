@@ -1,12 +1,12 @@
 By: Harvey Tsang
 
-***Introduction:***
+***Introduction***
 ---
 For the final project I chose to do option 4, which was to implement a technique that was discussed in class and something I didn’t already implement. I settled on an Eulerian smoke simulation with the aim of extending it to fire. We talked about Eulerian fluid in class, so there is a direct relation to my project topic. Eulerian fluid follows changes in flow over a single location in space and utilizes the Navier-Stokes equation to help calculate the flow of incompressible fluid (smoke and fire in my case). The state-of-the-art way to implement fire and smoke as fluid often includes volumetric fluid solvers, often using some form of the Navier-Stokes equation and treating the simulation space as a flow-grid. An example used by lots of research in fire-safety is the Fire Dynamics Simulator (FDS), which uses a Large eddy simulation for turbulance using the Navier-Stokes equation, and a Smokeview (SMV) program used to display the fire and smoke. As seen in <a href="https://www.sciencedirect.com/science/article/abs/pii/S0379711223001467"> Real-time visualization of smoke for fire safety engineering applications </a>  AND in <a href="https://history.siggraph.org/wp-content/uploads/2023/01/2004-Poster-101-Barrero_CFD-and-Realistic-Visualization-for-the-Analysis-of-Fire-Scenarios.pdf"> Computation and Representation of Fire and Smoke in Buildings </a>. Here is the direct source for <a href="https://pages.nist.gov/fds-smv/"> FDS-SMV </a>. Another flow-grid solver example, <a href="https://dl.acm.org/doi/pdf/10.1145/3388767.3407380"> Sparse Smoke Simulations in Houdini </a> , implements smoke using a more efficient and sparse fluid solver that skips inactive spaces, where the traditional volumetric fluid solver does not. However, their approach still derives from solving the Navier-Stokes equations.
 
-***My approach and key algorithms:***
+***My approach and key algorithms***
 ---
-In my implementation, I follow the code examples as provided from Jo Stam's <a href="http://graphics.cs.cmu.edu/nsp/course/15-464/Fall09/papers/StamFluidforGames.pdf"> Real-Time Fluid Dynamics for Games </a>, which uses a simplified version of the Navier-Stokes equations to create a more stable simulation as seen here: 
+In my implementation, I follow the code examples as provided from Jos Stam's <a href="http://graphics.cs.cmu.edu/nsp/course/15-464/Fall09/papers/StamFluidforGames.pdf"> Real-Time Fluid Dynamics for Games </a>, which uses a simplified version of the Navier-Stokes equations to create a more stable simulation as seen here: 
 <p align="center">
   <img src="./docs/assets/jostamEquations.JPG" width="500" height="250"> .
 </p>
@@ -17,7 +17,7 @@ Because this implementation utilizes a grid to model the flow of velocity and de
 
 For the fire simulation, I based my implementation off of Professor Guy's fire code. On top of the same diffuse and advect functions that we saw with the smoke, added components of oxygen and fuel combine in a "burn" equation that produces heat. which combine to produce heat. We use the heat grid then to visualize the fire, where higher heat density means hotter fire. There is also a convective velocity for higher heat densities to simulate heat rising. 
 
-***Project sketch overview:***
+***Project sketch overview***
 ---
 |Initial Sketch          | Updated Sketch         | 
 |-------------------------|-------------------------|
@@ -30,10 +30,14 @@ For the most part, my goal remained the same throughout the implementation proce
 |-------------------------|-------------------------|
 <img src="./docs/assets/smoke mid sim.png" width="300" height="250"> | <img src="./docs/assets/updatedSmoke.JPG" width="300" height="250"> |  
 
-With the detailed breakdown of fluid simulation from Jo Stam's paper, getting the smoke simulation working was pretty straight-forward. The biggest challenge here was getting realistic behaviour, which I was able to achieve after tweaking the diffusion and viscosity constants for the smoke. Between the first and second image I also applied a dissipation factor to the smoke since it wasn't fading over time and became overly-concentrated very rapidly. Overall, I was very happy with my results.
+With the detailed breakdown of fluid simulation from Jos Stam's paper, getting the smoke simulation working was pretty straight-forward. The biggest challenge here was getting realistic behaviour, which I was able to achieve after tweaking the diffusion and viscosity constants for the smoke. Between the first and second image I also applied a dissipation factor to the smoke since it wasn't fading over time and became overly-concentrated very rapidly. Overall, I was very happy with my results.
 
 |Final Fire startup | Final Fire mid-sim |
 |-------------------------|-------------------------|
 <img src="./docs/assets/fireStartup.JPG" width="300" height="250"> | <img src="./docs/assets/finalFire.JPG" width="300" height="250"> |     
 
 Once I figured out the smoke, transitioning from smoke to fire was relatively easy since the foundation for the fluid-simulation was already set. Initially I thought that I might have to simulate both smoke and fire and combine them somehow, since their behaviour is a bit different. However, having convectivity based on the heat value allows for separate looking behaviours between concentrated heat and dispersing heat. By coloring the heat based on it's density, smoke can be simulated at lower heat values. This gives a pretty nice look of smoke rising from the top of the flames.
+
+***Peer Feedback***
+---
+
