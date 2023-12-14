@@ -57,7 +57,7 @@ The main limitation I had was slow real-time simulation with larger scenes. The 
 ---
 ***Source code***
 
-<a href= "/CSCI5611_FINAL_PROJ_smoke.pde" download>Download Smoke Code</a>
+<a href= "/docs/assets/CSCI5611_FINAL_PROJ_smoke.pde" download>Download Smoke Code</a>
 
-<a href= "/CSCI5611_FINAL_PROJ_fire.pde" download>Download Fire Code</a>
+<a href= "/docs/assets/CSCI5611_FINAL_PROJ_fire.pde" download>Download Fire Code</a>
 
