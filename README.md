@@ -19,7 +19,7 @@ Because this implementation utilizes a grid to model the flow of velocity and de
 ---
 |Initial Sketch          | Updated Sketch         | 
 |-------------------------|-------------------------|
-<img src="./docs/assets/IK both arms goal.JPG" width="300" height="250"> | <img src="./docs/assets/IK both arms out of reach left.JPG" width="300" height="250">  
+<img src="./docs/assets/initSketch.JPG" width="300" height="250"> | <img src="./docs/assets/final proj sketch.png" width="300" height="250">  
 
 |Initial Smoke implementation | Updated Smoke Implemetation         | 
 |-------------------------|-------------------------|
