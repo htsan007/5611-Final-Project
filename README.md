@@ -15,11 +15,15 @@ This approach involves advection and diffusion of the fluid's density, as well a
 
 Because this implementation utilizes a grid to model the flow of velocity and density, the computation scales up with the size of the scene. There are nested loops iterating across the rows and columns of the grid for advection, diffuse, projection, and other steps for initialization and scene visualization. This makes computation time atleast O(N^2). Due to this fact, I had to restrict my scene to a small window for it to run smoothly in real-time. This bottleneck may be avoided if you were to do an offline simulation or use a different language. I implemented the simulation in processing(java based language) for easier visualization and consistency with my other projects, which isn't the best for real-time physics simulations, where as the author's originally wrote their version in C.
 
+For the fire simulation, I based my implementation off of Professor Guy's fire code. On top of the same diffuse and advect functions that we saw with the smoke, added components of oxygen and fuel combine in a "burn" equation that produces heat. which combine to produce heat. We use the heat grid then to visualize the fire, where higher heat density means hotter fire. There is also a convective velocity for higher heat densities to simulate heat rising. 
+
 ***Project sketch overview:***
 ---
 |Initial Sketch          | Updated Sketch         | 
 |-------------------------|-------------------------|
 <img src="./docs/assets/initSketch.JPG" width="300" height="250"> | <img src="./docs/assets/final proj sketch.png" width="300" height="250">  
+For the most part, my goal remained the same throughout the implementation process, and I was able to achieve some reasonable looking results (see below images). Once I figured out the smoke, transitioning from smoke to fire was relatively easy since the foundation for the fluid-simulation was already set. Initially I thought that I might have to simulate both smoke and fire and combine them somehow, since their behaviour is a bit different. However, having convectivity based on the heat value allows for separate looking behaviours between concentrated heat and dispersing heat. By coloring the heat based on it's density, smoke can be simulated at lower heat values. This gives a pretty nice look of smoke rising from the top of the flames.
+
 
 |Initial Smoke implementation | Updated Smoke Implemetation         | 
 |-------------------------|-------------------------|
