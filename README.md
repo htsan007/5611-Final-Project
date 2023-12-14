@@ -6,7 +6,7 @@ For the final project I chose to do option 4, which was to implement a technique
 
 ***My approach and key algorithms:***
 ---
-In my implementation, I follow the code examples as provided from Jo Stam's <a href="http://graphics.cs.cmu.edu/nsp/course/15-464/Fall09/papers/StamFluidforGames.pdf"> Real-Time Fluid Dynamics for Games </a>, which uses a simplified version of the Navier-Stokes equations to create a more stable simulation. 
+In my implementation, I follow the code examples as provided from Jo Stam's <a href="http://graphics.cs.cmu.edu/nsp/course/15-464/Fall09/papers/StamFluidforGames.pdf"> Real-Time Fluid Dynamics for Games </a>, which uses a simplified version of the Navier-Stokes equations to create a more stable simulation as seen here: <img src="./docs/assets/jostamEquations.JPG" width="500" height="300"> .
 
 This approach involves advection and diffusion of the fluid's density, as well as advection, diffusion, and projection of the velocity. These density and velocity components are represented within a grid covering the whole simulation space. Calculating the diffusion of a component involves using the Gauss-Seidel solver which essentially finds the component that when diffused backwards will yield the current value. This approach is relatively simple and also stable. For the advection, a simple linear backtrace is used, where the velocity is traced backwards and the value at the grid-cell it lands in will be used. Using a backtrace approach allows for better stability than a forward approach. Finally, for the velocity, projection is used to ensure best stability, mass conservation, and fluid incompressability. 
  
