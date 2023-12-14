@@ -4,12 +4,17 @@ By: Harvey Tsang
 ---
 For the final project I chose to do option 4, which was to implement a technique that was discussed in class and something I didn’t already implement. I settled on an Eulerian smoke simulation with the aim of extending it to fire. We talked about Eulerian fluid in class, so there is a direct relation to my project topic. Eulerian fluid follows changes in flow over a single location in space and utilizes the Navier-Stokes equation to help calculate the flow of incompressible fluid (smoke and fire in my case). The state-of-the-art way to implement fire and smoke as fluid often includes volumetric fluid solvers, often using some form of the Navier-Stokes equation and treating the simulation space as a flow-grid. An example used by lots of research in fire-safety is the Fire Dynamics Simulator (FDS), which uses a Large eddy simulation for turbulance using the Navier-Stokes equation, and a Smokeview (SMV) program used to display the fire and smoke. As seen in <a href="https://www.sciencedirect.com/science/article/abs/pii/S0379711223001467"> Real-time visualization of smoke for fire safety engineering applications </a>  AND in <a href="https://history.siggraph.org/wp-content/uploads/2023/01/2004-Poster-101-Barrero_CFD-and-Realistic-Visualization-for-the-Analysis-of-Fire-Scenarios.pdf"> Computation and Representation of Fire and Smoke in Buildings </a>. Here is the direct source for <a href="https://pages.nist.gov/fds-smv/"> FDS-SMV </a>. Another flow-grid solver example, <a href="https://dl.acm.org/doi/pdf/10.1145/3388767.3407380"> Sparse Smoke Simulations in Houdini </a> , implements smoke using a more efficient and sparse fluid solver that skips inactive spaces, where the traditional volumetric fluid solver does not. However, their approach still derives from solving the Navier-Stokes equations.
 
+***Simulation Showcase***
+---
+{% include youtube.html id="VIDEO ID HERE" %}
+
 ***My approach and key algorithms***
 ---
 In my implementation, I follow the code examples as provided from Jos Stam's <a href="http://graphics.cs.cmu.edu/nsp/course/15-464/Fall09/papers/StamFluidforGames.pdf"> Real-Time Fluid Dynamics for Games </a>, which uses a simplified version of the Navier-Stokes equations to create a more stable simulation as seen here: 
 <p align="center">
   <img src="./docs/assets/jostamEquations.JPG" width="500" height="250"> .
 </p>
+This approach may not yield the best state-of-the-art graphics for smoke or fire, but it is stable, relatively simple to implement, and easy to add extensions to compared to the original Navier-Stokes equations and other solvers mentioned in the intro.
 
 This approach involves advection and diffusion of the fluid's density, as well as advection, diffusion, and projection of the velocity. These density and velocity components are represented within a grid covering the whole simulation space. Calculating the diffusion of a component involves using the Gauss-Seidel solver which essentially finds the component that when diffused backwards will yield the current value. This approach is relatively simple and also stable. For the advection, a simple linear backtrace is used, where the velocity is traced backwards and the value at the grid-cell it lands in will be used. Using a backtrace approach allows for better stability than a forward approach. Finally, for the velocity, projection is used to ensure best stability, mass conservation, and fluid incompressability. For visualization, I simply took the value of each point in the grid and used it to color its corresponding pixel in the scene.
 
@@ -41,7 +46,7 @@ Once I figured out the smoke, transitioning from smoke to fire was relatively ea
 ***Peer Feedback***
 ---
 
-I received feedback on my smoke simulation saying that it might benefit from adding user interaction, obstacles, or a more compled environment/background. My smoke simulation itself was pretty well accepted by my peers for its realistic visuals. I was origianlly planning on adding some sort of scene, as depicted in my original project sketch, and I was able to make it look somewhat like a campfire in the end. I also added some basic interaction such as starting and stopping the fire simulation, as well as gusts of wind that can be triggered by the user. I didn't get to adding obstacles beyond the boundaries of the scene.
+I received feedback on my smoke simulation saying that it might benefit from adding user interaction, obstacles, or a more complex environment/background. My smoke simulation itself was pretty well accepted by my peers for its realistic visuals. I was origianlly planning on adding some sort of scene, as depicted in my original project sketch, and I was able to make it look somewhat like a campfire in the end. I also added some basic interaction such as starting and stopping the smoke & fire simulation, as well as gusts of wind that can be triggered by the user. I didn't get to adding obstacles beyond the boundaries of the scene.
 
 ***Possible Extensions and Limitations***
 ---
