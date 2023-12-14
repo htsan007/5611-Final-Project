@@ -23,14 +23,17 @@ For the fire simulation, I based my implementation off of Professor Guy's fire c
 |-------------------------|-------------------------|
 <img src="./docs/assets/initSketch.JPG" width="300" height="250"> | <img src="./docs/assets/final proj sketch.png" width="300" height="250"> | 
 
-For the most part, my goal remained the same throughout the implementation process, and I was able to achieve some reasonable looking results (see below images). Once I figured out the smoke, transitioning from smoke to fire was relatively easy since the foundation for the fluid-simulation was already set. Initially I thought that I might have to simulate both smoke and fire and combine them somehow, since their behaviour is a bit different. However, having convectivity based on the heat value allows for separate looking behaviours between concentrated heat and dispersing heat. By coloring the heat based on it's density, smoke can be simulated at lower heat values. This gives a pretty nice look of smoke rising from the top of the flames.
+For the most part, my goal remained the same throughout the implementation process, and I was able to achieve some reasonable looking results (see below images). 
 
 
 |Initial Smoke implementation | Updated Smoke Implemetation         | 
 |-------------------------|-------------------------|
-<img src="./docs/assets/smoke mid sim.png" width="300" height="250"> | <img src="./docs/assets/updatedSmoke.JPG" width="300" height="250">       
+<img src="./docs/assets/smoke mid sim.png" width="300" height="250"> | <img src="./docs/assets/updatedSmoke.JPG" width="300" height="250"> |  
+
+With the detailed breakdown of fluid simulation from Jo Stam's paper, getting the smoke simulation working was pretty straight-forward. The biggest challenge here was getting realistic behaviour, which I was able to achieve after tweaking the diffusion and viscosity constants for the smoke. Between the first and second image I also applied a dissipation factor to the smoke since it wasn't fading over time and became overly-concentrated very rapidly. I was very happy with my results on the smoke.
 
 |Final Fire startup | Final Fire mid-sim |
 |-------------------------|-------------------------|
-<img src="./docs/assets/fireStartup.JPG" width="300" height="250"> | <img src="./docs/assets/finalFire.JPG" width="300" height="250">       
+<img src="./docs/assets/fireStartup.JPG" width="300" height="250"> | <img src="./docs/assets/finalFire.JPG" width="300" height="250"> |     
 
+Once I figured out the smoke, transitioning from smoke to fire was relatively easy since the foundation for the fluid-simulation was already set. Initially I thought that I might have to simulate both smoke and fire and combine them somehow, since their behaviour is a bit different. However, having convectivity based on the heat value allows for separate looking behaviours between concentrated heat and dispersing heat. By coloring the heat based on it's density, smoke can be simulated at lower heat values. This gives a pretty nice look of smoke rising from the top of the flames.
