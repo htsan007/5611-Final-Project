@@ -1,0 +1,35 @@
+void update(float dt){
+  // Compute the "burn equation" for each cell (O,F -> H)
+  for (int i = 0; i < nx; i++){
+  for (int j = 0; j < ny; j++){
+    float O = oxy[IX(i,j)];
+    float F = fuel[IX(i,j)];
+    float H = heat[IX(i,j)] + 30;  //Ambient temp
+    
+    float reactionRate = (O*F*H - energyBarrier) * rateConstant;
+    
+    if (reactionRate < 0) reactionRate = 0;
+    if (reactionRate > maxRate) reactionRate = maxRate;
+
+    oxy[IX(i,j)] -= reactionRate * dt;
+    fuel[IX(i,j)] -= reactionRate * dt;
+    heat[IX(i,j)] += reactionRate * dt * exothermicness;
+          
+    if (oxy[IX(i,j)] < 0) oxy[IX(i,j)] = 0;
+    if (fuel[IX(i,j)] < 0) fuel[IX(i,j)] = 0;
+  }
+  }
+  
+  // Add an updraft for convection due to heat
+  for (int i=1 ; i<=nx ; i++){
+    for (int j=1 ; j<=ny ; j++){
+      V[IX(i,j)] += heat[IX(i,j)] * convectivness; //V is y velocity
+    }
+  }
+
+  // Diffusion and advection
+  vel_step(U,V,U_prev,V_prev,viscC,dt);
+  dens_step(dens,dens_prev,U,V,diffC,dt);
+  dens_step(heat,heat_prev,U,V,diffC_Heat,dt);
+  dens_step(oxy,oxy_prev,U,V,diffC_O2,dt);
+}
