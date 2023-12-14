@@ -43,7 +43,7 @@ Once I figured out the smoke, transitioning from smoke to fire was relatively ea
 
 I received feedback on my smoke simulation saying that it might benefit from adding user interaction, obstacles, or a more compled environment/background. My smoke simulation itself was pretty well accepted by my peers for its realistic visuals. I was origianlly planning on adding some sort of scene, as depicted in my original project sketch, and I was able to make it look somewhat like a campfire in the end. I also added some basic interaction such as starting and stopping the fire simulation, as well as gusts of wind that can be triggered by the user. I didn't get to adding obstacles beyond the boundaries of the scene.
 
-***Possible Extensions and Limitations**
+***Possible Extensions and Limitations***
 ---
 
 As one of my peers suggested, I think adding more complex obstacles would be an interesting extension. I might try to add obstacles using the same boundary mechanics that were used for the edges of the scene. Another extension would to make the fire/smoke a part of a larger, more active scene. Currently my firecamp scene is pretty basic and shows off the simulation itself pretty well, but that is about it.
@@ -53,4 +53,11 @@ As one of my peers suggested, I think adding more complex obstacles would be an 
 The main limitation I had was slow real-time simulation with larger scenes. The larger my scene was the choppier the simulation would be, which wasn't ideal for the realistic real-time simulation I was aiming for. This might work better in a different language or as an offline simulation instead. 
 
   Since the approach I took for visualization was essentially to iterate through and color every scene pixel based on the grid values, every single pixel is redrawn when the scene is updated. This leaves it so that other objects I want to draw must be draw ontop of the fire simulation otherwise they would be drawn over. Textured backgrounds are not an option because of this as well; it would simply get covered up. I might try and fix this by trying to avoid redrawing certain areas with no smoke/fire, which would allow for more customization with the background and may also increase simulation speed since less areas would have to be redrawn at every update.
+
+---
+***Source code***
+
+<a href= "/IK_code/CSCI5611_FINAL_PROJ_smoke.pde" download>Download Smoke Code</a>
+
+<a href= "/IK_code/CSCI5611_FINAL_PROJ_fire.pde" download>Download Fire Code</a>
 
