@@ -22,6 +22,7 @@ For the fire simulation, I based my implementation off of Professor Guy's fire c
 |Initial Sketch          | Updated Sketch         | 
 |-------------------------|-------------------------|
 <img src="./docs/assets/initSketch.JPG" width="300" height="250"> | <img src="./docs/assets/final proj sketch.png" width="300" height="250">  
+
 For the most part, my goal remained the same throughout the implementation process, and I was able to achieve some reasonable looking results (see below images). Once I figured out the smoke, transitioning from smoke to fire was relatively easy since the foundation for the fluid-simulation was already set. Initially I thought that I might have to simulate both smoke and fire and combine them somehow, since their behaviour is a bit different. However, having convectivity based on the heat value allows for separate looking behaviours between concentrated heat and dispersing heat. By coloring the heat based on it's density, smoke can be simulated at lower heat values. This gives a pretty nice look of smoke rising from the top of the flames.
 
 
