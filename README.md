@@ -27,5 +27,5 @@ Because this implementation utilizes a grid to model the flow of velocity and de
 
 |Final Fire startup | Final Fire mid-sim |
 |-------------------------|-------------------------|
-<img src="./docs/assets/finalStartup.JPG" width="300" height="250"> | <img src="./docs/assets/finalFire.JPG" width="300" height="250">       
+<img src="./docs/assets/fireStartup.JPG" width="300" height="250"> | <img src="./docs/assets/finalFire.JPG" width="300" height="250">       
 
