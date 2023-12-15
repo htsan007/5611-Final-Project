@@ -49,7 +49,7 @@ Once I figured out the smoke, transitioning from smoke to fire was relatively ea
 ***Peer Feedback***
 ---
 
-I received feedback on my smoke simulation saying that it might benefit from adding user interaction, obstacles, or a more complex environment/background. My smoke simulation itself was pretty well accepted by my peers for its realistic visuals. I was origianlly planning on adding some sort of scene, as depicted in my original project sketch, and I was able to make it look somewhat like a campfire in the end. I also added some basic interaction such as starting and stopping the smoke & fire simulation, as well as gusts of wind that can be triggered by the user. I didn't get to adding obstacles beyond the boundaries of the scene.
+I received feedback on my smoke simulation saying that it might benefit from adding user interaction, obstacles, or a more complex environment/background. My smoke simulation itself was pretty well accepted by my peers for its realistic visuals. I was originally planning on adding some sort of scene, as depicted in my original project sketch, and I was able to make it look somewhat like a campfire in the end. I also added some basic interaction such as starting and stopping the smoke & fire simulation, as well as gusts of wind that can be triggered by the user. I didn't get to adding extra obstacles for smoke and fire to collide with.
 
 ***Possible Extensions***
 ---
@@ -58,15 +58,15 @@ As one of my peers suggested, I think adding more complex obstacles would be an 
 
 Another thing I might try in the future is to get a better color gradient for the fire and smoke. I implemented the color so that the heat was colored based on certain threshold values. This makes for some pretty distinct lines in the color distribution, which looks somewhat animated and unnatural.
 
-I think this 2D simulation would look even nicer if extended to 3D. Jos Stam's paper talks about that a little bit, and they noted that it would be pretty simple given the structure of how it was designed; the main change would be adding arrays for the z-dimension as well as another for loop in computation. 
+I think this 2D simulation would look even nicer if extended to 3D. Jos Stam's paper talks about that a little bit, noting that it would be pretty simple given the structure of how it was designed; the main change would be adding arrays for the z-dimension as well as another for loop in computation. 
 
 
 ***Limitations***
 ---
 
-The main limitation I had was slow real-time simulation with larger scenes. The larger my scene was the choppier the simulation would be, which wasn't ideal for the realistic real-time simulation I was aiming for. This might work better in a different language or as an offline simulation instead. 
+The main limitation I had was slow real-time simulation with larger scenes. The larger my scene was the choppier the simulation was, which wasn't ideal for the realistic real-time simulation I was aiming for. This might work better in a different language or as an offline simulation instead. 
 
-Since the approach I took for visualization was essentially to iterate through and color every scene pixel based on the grid values, every single pixel is redrawn when the scene is updated. This leaves it so that other objects I want to draw must be draw ontop of the fire simulation otherwise they would be drawn over. Textured backgrounds are not an option because of this as well; it would simply get covered up. I might try and fix this by trying to avoid redrawing certain areas with no smoke/fire, which would allow for more customization with the background and may also increase simulation speed since less areas would have to be redrawn at every update.
+Since the approach I took for visualization was essentially to iterate through and color every scene pixel based on the grid values, every single pixel is redrawn when the scene is updated. This leaves it so that other objects I want to draw must be drawn ontop of the fire simulation otherwise they would be drawn over. Textured backgrounds are not an option because of this as well; it would simply get covered up. I might try and fix this by trying to avoid redrawing certain areas with no smoke/fire, which would allow for more customization with the background and may also increase simulation speed since less areas would have to be redrawn at every update.
 
 ---
 ***Source code***
@@ -77,4 +77,4 @@ Since the approach I took for visualization was essentially to iterate through a
 
 Both the smoke and fire simulations were written by me. The main algorithms and functionality was taken from Jos Stam's paper <a href="http://graphics.cs.cmu.edu/nsp/course/15-464/Fall09/papers/StamFluidforGames.pdf"> Real-Time Fluid Dynamics for Games </a> . Additional functionality for the fire simulation was taken from Professor Guy's <a href= "/docs/assets/ProfessorFire5611.txt"> code example</a> . I also referenced  <a href="https://processing.org/reference/"> Processing documentation </a> to explore built-in functions and their functionalities.
 
-See the full project repository <a href="https://github.com/htsan007/5611-Final-Project/tree/main "> ***here*** </a>
+See the full project repository <a href="https://github.com/htsan007/5611-Final-Project/tree/main "> ***here.*** </a>
